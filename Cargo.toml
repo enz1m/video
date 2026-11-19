@@ -1,0 +1,127 @@
+[package]
+name = "video-app"
+default-run = "video-app"
+version = "0.1.0"
+authors = ["enzUI contributors"]
+edition = "2024"
+publish = false
+license = "MIT"
+description = "A native video player and Plex, Jellyfin and Emby client built with enzUI"
+repository = "https://github.com/enz1m/video"
+rust-version = "1.95"
+
+[workspace]
+resolver = "3"
+
+[features]
+x11 = ["iced/x11", "enzui-widgets/x11"]
+default = ["portal-dbus"]
+portal-dbus = ["enzui-core/portal-dbus"]
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.test]
+debug = "line-tables-only"
+
+[profile.release]
+lto = false
+codegen-units = 16
+debug = 0
+strip = "debuginfo"
+
+[profile.dev.package."*"]
+opt-level = 2
+debug = 0
+incremental = false
+
+[profile.test.package."*"]
+opt-level = 2
+debug = 0
+incremental = false
+
+# Generic iced widget code is monomorphized into this crate and runs every frame.
+[profile.dev.package.video-app]
+opt-level = 2
+
+[dependencies]
+iced = { git = "https://github.com/enz1m/enzim-iced.git", rev = "e36b07b591661fdb666088fc943cc0b927a2367b", default-features = false, features = ["wgpu", "tiny-skia", "crisp", "web-colors", "thread-pool", "linux-theme-detection", "wayland", "canvas", "svg", "a11y", "image-without-codecs", "tokio"] }
+enzui-core = { features = ["accesskit", "application-dbus", "activation-native-iced"], git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+enzui-resources = { default-features = false, git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+enzui-services = { features = ["gstreamer", "secret-service"], git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "stream"] }
+url = "2"
+futures-util = "0.3"
+quick-xml = { version = "0.38", features = ["serialize"] }
+enzui-theme = { git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+enzui-icons = { git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+enzui-wayland = { git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+enzui-widgets = { features = ["portal-dbus", "application-dbus"], git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", default-features = false, features = ["rt", "time"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+
+[dev-dependencies]
+iced_test = { git = "https://github.com/enz1m/enzim-iced.git", rev = "e36b07b591661fdb666088fc943cc0b927a2367b" }
+tokio = { version = "1", default-features = false, features = ["rt", "time", "test-util"] }
+enzui-test-support = { git = "https://github.com/enz1m/enzui.git", rev = "ef1e462c3449852e6f1cd59fed8decef12ca7dba" }
+
+[patch.crates-io]
+zbus_macros = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zbus_names = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zvariant = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zvariant_derive = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zvariant_utils = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+zbus = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
+winit = { git = "https://github.com/enz1m/enzim-winit.git", rev = "40eeb41f8637ef1620afa377ba006874224b6d65" }
+
+
+[lints]
+workspace = true
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+missing_docs = "warn"
+unreachable_pub = "warn"
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(docsrs)"] }
+
+[workspace.lints.clippy]
+unwrap_used = "warn"
+dbg_macro = "warn"
+todo = "warn"
+unimplemented = "warn"
+print_stdout = "warn"
+mem_forget = "warn"
+undocumented_unsafe_blocks = "warn"
+return_self_not_must_use = "warn"
+clone_on_ref_ptr = "warn"
+redundant_clone = "warn"
+trivially_copy_pass_by_ref = "warn"
+large_stack_arrays = "warn"
+ref_option = "warn"
+implicit_clone = "warn"
+assigning_clones = "warn"
+or_fun_call = "warn"
+cast_lossless = "warn"
+significant_drop_in_scrutinee = "warn"
+manual_let_else = "warn"
+map_unwrap_or = "warn"
+redundant_closure_for_method_calls = "warn"
+semicolon_if_nothing_returned = "warn"
+uninlined_format_args = "warn"
+unnested_or_patterns = "warn"
+explicit_iter_loop = "warn"
+ignored_unit_patterns = "warn"
+unused_async = "warn"
+string_slice = "warn"
+unwrap_in_result = "warn"
+panic = "warn"
+iter_over_hash_type = "warn"
+allow_attributes_without_reason = "warn"
+missing_errors_doc = "warn"
+missing_panics_doc = "warn"
+missing_assert_message = "warn"
+str_to_string = "warn"
+format_push_string = "warn"
+redundant_type_annotations = "warn"

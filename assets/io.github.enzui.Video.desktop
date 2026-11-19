@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Video
+GenericName=Video Player
+Comment=Watch videos and network streams
+Exec=video-app %U
+TryExec=video-app
+Icon=io.github.enzui.Video
+Terminal=false
+StartupNotify=true
+StartupWMClass=io.github.enzui.Video
+Categories=AudioVideo;Video;Player;
+Keywords=video;movie;film;player;subtitles;stream;
+MimeType=video/3gpp;video/3gpp2;video/matroska;video/mp2t;video/mp4;video/mpeg;video/ogg;video/quicktime;video/vnd.avi;video/webm;video/x-flv;video/x-m4v;video/x-matroska;video/x-ms-wmv;video/x-msvideo;

@@ -1,0 +1,14 @@
+/target/
+/runtime/
+/stage/
+__pycache__/
+*.pyc
+/core
+/AGENTS/
+/evidence/
+.env
+.env.*
+!.env.example
+*.log
+*.profraw
+*.profdata

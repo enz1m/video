@@ -1,0 +1,42 @@
+video-add-videos-04dc04 = Ajouter des vidéos…
+video-address-56ef8f = Adresse
+video-audio-track-e4a847 = Piste audio
+video-back-76900f = Retour
+video-cancel-19766e = Annuler
+video-clear-list-a2a6ef = Effacer la liste
+video-close-queue-5433ac = Fermer la file
+video-connect-1a2303 = Connecter
+video-connect-a-media-server-da18b5 = Connecter un serveur multimédia
+video-continue-watching-81ebbe = Reprendre la lecture
+video-fullscreen-c461db = Plein écran
+video-keyboard-shortcuts-e9bef0 = Raccourcis clavier
+video-leave-fullscreen-d58f23 = Quitter le plein écran
+video-media-information-c01b2b = Informations du média
+video-media-library-f1ae34 = Médiathèque
+video-more-d47d7c = Plus
+video-next-in-queue-06483f = Suivant dans la file
+video-open-a-video-drop-one-onto-this-window-or-play-a-stream-a3fc1e = Ouvrez une vidéo, déposez-la dans cette fenêtre ou lisez un flux depuis un lien.
+video-open-network-stream-99aeb3 = Ouvrir un flux réseau
+video-open-network-stream-fd5713 = Ouvrir un flux réseau…
+video-open-video-6ac7b3 = Ouvrir une vidéo
+video-open-video-a98884 = Ouvrir une vidéo…
+video-open-video-f648b2 = Ouvrir une vidéo…
+video-password-e7cf3e = Mot de passe
+video-play-436e61 = Lire
+video-previous-in-queue-56016a = Précédent dans la file
+video-queue-3b2fe0 = File de lecture
+video-recently-watched-eb33c3 = Vues récemment
+video-server-address-8be897 = Adresse du serveur
+video-sign-in-bfd402 = Se connecter
+video-sign-out-48f0d3 = Se déconnecter
+video-subtitles-0ee695 = Sous-titres
+video-user-name-b82e11 = Nom d’utilisateur
+video-watch-a-video-c6bc64 = Regarder une vidéo
+video-previous-in-queue = Précédent dans la file
+video-next-in-queue = Suivant dans la file
+video-app-name = Vidéo
+video-queue-added = { $count ->
+    [one] Une vidéo ajoutée à la file
+   *[other] { $count } vidéos ajoutées à la file
+    }
+video-window-title = { $title } — { video-app-name }
