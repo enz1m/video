@@ -978,8 +978,8 @@ dependencies = [
 
 [[package]]
 name = "enzui-clipboard"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "enzui-core",
  "enzui-security",
@@ -992,8 +992,8 @@ dependencies = [
 
 [[package]]
 name = "enzui-clipboard-runtime"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "enzui-clipboard",
  "enzui-core",
@@ -1008,8 +1008,8 @@ dependencies = [
 
 [[package]]
 name = "enzui-core"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "accesskit",
  "ashpd",
@@ -1055,18 +1055,18 @@ dependencies = [
 
 [[package]]
 name = "enzui-icons"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 
 [[package]]
 name = "enzui-parent-lease"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 
 [[package]]
 name = "enzui-resources"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "enzui-core",
  "enzui-security",
@@ -1079,16 +1079,16 @@ dependencies = [
 
 [[package]]
 name = "enzui-security"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "rustix",
 ]
 
 [[package]]
 name = "enzui-services"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "cc",
  "curl",
@@ -1109,16 +1109,16 @@ dependencies = [
 
 [[package]]
 name = "enzui-test-support"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "iced_core",
 ]
 
 [[package]]
 name = "enzui-theme"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "iced_core",
  "iced_futures",
@@ -1127,8 +1127,8 @@ dependencies = [
 
 [[package]]
 name = "enzui-wayland"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "enzui-core",
  "enzui-parent-lease",
@@ -1140,8 +1140,8 @@ dependencies = [
 
 [[package]]
 name = "enzui-widgets"
-version = "0.2.0-alpha.1"
-source = "git+https://github.com/enz1m/enzui.git?rev=ef1e462c3449852e6f1cd59fed8decef12ca7dba#ef1e462c3449852e6f1cd59fed8decef12ca7dba"
+version = "0.3.0-alpha.1"
+source = "git+https://github.com/enz1m/enzui.git?tag=v0.3.0-alpha.1#4d71081d58e26bd9f2678662bba78d6e51a9ea80"
 dependencies = [
  "bytemuck",
  "enzui-clipboard",
