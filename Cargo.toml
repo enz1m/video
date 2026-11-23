@@ -1,7 +1,7 @@
 [package]
 name = "video-app"
 default-run = "video-app"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["enzUI contributors"]
 edition = "2024"
 publish = false
@@ -45,27 +45,27 @@ incremental = false
 opt-level = 2
 
 [dependencies]
-iced = { git = "https://github.com/enz1m/enzim-iced.git", rev = "e36b07b591661fdb666088fc943cc0b927a2367b", default-features = false, features = ["wgpu", "tiny-skia", "crisp", "web-colors", "thread-pool", "linux-theme-detection", "wayland", "canvas", "svg", "a11y", "image-without-codecs", "tokio"] }
-enzui-core = { features = ["accesskit", "application-dbus", "activation-native-iced"], git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
-enzui-resources = { default-features = false, git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
-enzui-services = { features = ["gstreamer", "secret-service"], git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
+iced = { git = "https://github.com/enz1m/enzim-iced.git", rev = "22ea94fc775a3de8d1c1a1905b51d09b236e4c3b", default-features = false, features = ["wgpu", "tiny-skia", "crisp", "web-colors", "thread-pool", "linux-theme-detection", "wayland", "canvas", "svg", "a11y", "image-without-codecs", "tokio"] }
+enzui-core = { features = ["accesskit", "application-dbus", "activation-native-iced"], git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
+enzui-resources = { default-features = false, git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
+enzui-services = { features = ["gstreamer", "secret-service"], git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json", "stream"] }
 url = "2"
 futures-util = "0.3"
 quick-xml = { version = "0.38", features = ["serialize"] }
-enzui-theme = { git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
-enzui-icons = { git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
-enzui-wayland = { git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
-enzui-widgets = { features = ["portal-dbus", "application-dbus"], git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
+enzui-theme = { git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
+enzui-icons = { git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
+enzui-wayland = { git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
+enzui-widgets = { features = ["portal-dbus", "application-dbus"], git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tokio = { version = "1", default-features = false, features = ["rt", "time"] }
 image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
 
 [dev-dependencies]
-iced_test = { git = "https://github.com/enz1m/enzim-iced.git", rev = "e36b07b591661fdb666088fc943cc0b927a2367b" }
+iced_test = { git = "https://github.com/enz1m/enzim-iced.git", rev = "22ea94fc775a3de8d1c1a1905b51d09b236e4c3b" }
 tokio = { version = "1", default-features = false, features = ["rt", "time", "test-util"] }
-enzui-test-support = { git = "https://github.com/enz1m/enzui.git", tag = "v0.3.0-alpha.1" }
+enzui-test-support = { git = "https://github.com/enz1m/enzui.git", rev = "27d8e8bb1951713ff3c45d6b5a7cb4e2e782c610" }
 
 [patch.crates-io]
 zbus_macros = { git = "https://github.com/enz1m/enzim-zbus.git", rev = "e182645b56d15e637bb6c8144f99ebfa7f900716" }
