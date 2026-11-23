@@ -42,8 +42,8 @@
   <releases>
     <release version="0.1.1" date="2026-11-23">
       <description>
-        <p>Update enzUI and its paired iced fork for nonblocking Wayland presentation discovery.</p>
-        <p>Pick up smoother sidebar transitions and centered view switchers from enzUI.</p>
+        <p>Video is available on enzim Apps. Play local files or connect a Plex, Jellyfin, or Emby server.</p>
+        <p>Resume from your last position and choose the audio track, subtitles, or playback speed while watching.</p>
       </description>
     </release>
     <release version="0.1.0" date="2026-11-20">
