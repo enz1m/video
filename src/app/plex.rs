@@ -147,6 +147,7 @@ impl App {
             event,
             Event::Open
                 | Event::Connect
+                | Event::ConnectInsecure
                 | Event::Server(_)
                 | Event::Library(_)
                 | Event::Sort(_)
@@ -490,8 +491,18 @@ impl App {
                 self.activity()
             }
             Event::ServerInput(value) => {
+                self.plex.insecure_address = None;
                 self.plex.server_input = value;
                 Task::none()
+            }
+            Event::ConnectInsecure => {
+                let Some((kind, address)) = self.plex.insecure_address.take() else {
+                    return Task::none();
+                };
+                if kind != Kind::Plex {
+                    self.plex.connecting = Some(plex::ConnectionProgress::Server(address.clone()));
+                }
+                self.connect_accepted_address(kind, address)
             }
             Event::Connect => {
                 let address = self.plex.server_input.trim().to_owned();
@@ -2221,5 +2232,30 @@ mod tests {
             Box::new(Ok(Some(titled("stale")))),
         ));
         assert!(app.plex.next_episode.is_none());
+    }
+
+    #[test]
+    fn plain_http_beyond_the_lan_waits_for_consent_before_connecting() {
+        let mut app = app();
+        app.plex.kind = Kind::Jellyfin;
+        for local in [
+            "192.168.1.10:8096",
+            "http://[::1]:8096",
+            "https://media.example.com",
+        ] {
+            let _ = app.plex_event(Event::ServerInput(local.into()));
+            let _ = app.plex_event(Event::Connect);
+            assert!(app.plex.insecure_address.is_none(), "{local}");
+        }
+        let _ = app.plex_event(Event::ServerInput("media.example.com:8096".into()));
+        let _ = app.plex_event(Event::Connect);
+        assert_eq!(
+            app.plex.insecure_address,
+            Some((Kind::Jellyfin, "media.example.com:8096".to_owned()))
+        );
+        assert!(app.plex.connecting.is_none());
+        let _ = app.plex_event(Event::ConnectInsecure);
+        assert!(app.plex.insecure_address.is_none());
+        assert!(app.plex.connecting.is_some());
     }
 }

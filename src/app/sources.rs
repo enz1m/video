@@ -190,6 +190,20 @@ impl App {
     }
 
     pub(super) fn connect_address(&mut self, kind: Kind, address: String) -> Task<Message> {
+        self.plex.insecure_address = None;
+        if crate::jellyfin::cleartext_beyond_lan(&address) {
+            self.plex.connecting = None;
+            self.plex.insecure_address = Some((kind, address));
+            return Task::none();
+        }
+        self.connect_accepted_address(kind, address)
+    }
+
+    pub(super) fn connect_accepted_address(
+        &mut self,
+        kind: Kind,
+        address: String,
+    ) -> Task<Message> {
         if kind == Kind::Plex {
             let token = self
                 .plex

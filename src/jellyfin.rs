@@ -754,10 +754,18 @@ fn origin(input: &str) -> Result<String, String> {
     Ok(origin)
 }
 
+// Tokens and passwords sent to such an address cross networks the user does not control in clear.
+pub(crate) fn cleartext_beyond_lan(address: &str) -> bool {
+    origin(address)
+        .is_ok_and(|origin| origin.starts_with("http://") && route_for(&origin) == Route::Remote)
+}
+
 pub(crate) fn route_for(address: &str) -> Route {
     let local = Url::parse(address).ok().and_then(|url| match url.host()? {
         url::Host::Ipv4(ip) => Some(ip.is_private() || ip.is_loopback() || ip.is_link_local()),
-        url::Host::Ipv6(ip) => Some(ip.is_loopback() || (ip.segments()[0] & 0xfe00) == 0xfc00),
+        url::Host::Ipv6(ip) => {
+            Some(ip.is_loopback() || ip.is_unique_local() || ip.is_unicast_link_local())
+        }
         url::Host::Domain(name) => {
             Some(name == "localhost" || name.ends_with(".local") || name.ends_with(".lan"))
         }

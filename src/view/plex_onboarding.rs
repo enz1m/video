@@ -354,6 +354,9 @@ fn find(app: &App) -> Element<'_, Message> {
     if let Some(error) = error(app) {
         content = content.push(error);
     }
+    if let Some(warning) = insecure_warning(app) {
+        content = content.push(warning);
+    }
     let placeholder = "http://192.0.2.10:8096";
     content = content
         .push(network_header(app))
@@ -720,6 +723,56 @@ fn heading<'a>(title: impl Into<String>, subtitle: String) -> Element<'a, Messag
     heading.into()
 }
 
+fn insecure_warning(app: &App) -> Option<Element<'_, Message>> {
+    let (_, address) = app.plex.insecure_address.as_ref()?;
+    let palette = app.themes.theme().palette.clone();
+    let spacing = app.themes.theme().spacing;
+    Some(
+        container(
+            column![
+                row![
+                    enz_icon("triangle-alert")
+                        .size(16.0)
+                        .tint(palette.warning)
+                        .into_element(),
+                    enz_text(enzui_core::localized!(
+                        "video-address-isn-t-encrypted-and-isn-t-on-your-network-580178",
+                        "address" => address.as_str()
+                    ))
+                    .into_element(),
+                ]
+                .mirrored(crate::l10n::rtl())
+                .spacing(10)
+                .align_y(Alignment::Center),
+                container(
+                    enz_button(
+                        enzui_core::localization::text("video-connect-anyway-3e3d60"),
+                        Message::Plex(Event::ConnectInsecure),
+                    )
+                    .id(iced::advanced::widget::Id::new(
+                        "video-connect-anyway-3e3d60"
+                    ))
+                    .kind(ButtonKind::Secondary)
+                    .into_element(),
+                )
+                .align_right(Length::Fill),
+            ]
+            .spacing(spacing.sm()),
+        )
+        .padding([10, 14])
+        .width(Length::Fill)
+        .style(move |_| container::Style {
+            background: Some(palette.warning_soft.into()),
+            border: iced::Border {
+                radius: enzui_theme::text_defaults::shape_radius(|shape| shape.card).into(),
+                ..Default::default()
+            },
+            ..Default::default()
+        })
+        .into(),
+    )
+}
+
 fn error<'a>(app: &'a App) -> Option<Element<'a, Message>> {
     let message = app.plex.error.as_deref()?;
     let palette = app.themes.theme().palette.clone();
@@ -810,6 +863,9 @@ fn welcome(app: &App) -> Element<'_, Message> {
     .width(Length::Fill);
     if let Some(error) = error(app) {
         content = content.push(error);
+    }
+    if let Some(warning) = insecure_warning(app) {
+        content = content.push(warning);
     }
     content = content
         .push(Space::new().height(spacing.md()))
