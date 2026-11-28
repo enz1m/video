@@ -40,6 +40,9 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="0.1.3" date="2026-11-28">
+      <description><p>Ask before sending media server credentials over unencrypted connections beyond the local network.</p></description>
+    </release>
     <release version="0.1.1" date="2026-11-23">
       <description>
         <p>Video is available on enzim Apps. Play local files or connect a Plex, Jellyfin, or Emby server.</p>
